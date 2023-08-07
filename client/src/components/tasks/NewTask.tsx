@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import taskServices from "../../services/taskServices";
 import { Taskclient } from "../../models/Taskclient";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 type Props = {
   isTaskAdd: (bol: boolean) => void;
   addTaskHandler: (task: Taskclient) => void;
