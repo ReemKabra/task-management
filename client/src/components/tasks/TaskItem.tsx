@@ -3,15 +3,20 @@ import { Taskclient } from "../../models/Taskclient";
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import taskServices from "../../services/taskServices";
+import { FaTrash } from 'react-icons/fa';
 import "./TaskItem.css";
 type Props={
 task:Taskclient,
 DeleteTaskHandler:(id:string) =>void,
+completedTasks:(task:Taskclient)=>void
 taskNumber:number,
 };
-export default function taskItem({ task, DeleteTaskHandler,taskNumber}:Props) {
+export default function taskItem({ task, DeleteTaskHandler,taskNumber,completedTasks}:Props) {
   const handleDelete=()=>{
     DeleteTaskHandler(task._id);
+  }
+  const CheckHandler=()=>{
+    completedTasks(task);
   }
     return (
       <React.Fragment>
@@ -23,7 +28,8 @@ export default function taskItem({ task, DeleteTaskHandler,taskNumber}:Props) {
           <h5>title: {task.title}</h5>
           <h5>description: {task.description}</h5>
           <h5>priority: {task.priority}</h5>
-          <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleDelete}> <FaTrash /> </button>
+          <input type="checkbox" onClick={CheckHandler} ></input>
         </div>
       </div>
     </React.Fragment>
