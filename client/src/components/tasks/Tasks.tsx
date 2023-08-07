@@ -88,7 +88,7 @@ return(
         </div>
       )}
 
-      {!isTask && <p>you didn't logged in</p>}
+      {!isTask && <p>You didn't logged in please back home</p>}
     </React.Fragment>
   );
 }
