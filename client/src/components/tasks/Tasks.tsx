@@ -13,7 +13,6 @@ const Tasks=()=>{
 const [tasks,setTasks]=useState([]);
 const [isTask,setIsTask]=useState(false);
 const[tasksCompleted,setTasksCompleted]=useState<Taskclient[]>([]);
-const[isTaskCompleted,setISTasksCompleted]=useState(false);
 const deleteTaskHandler = (id:string) => {
   taskServices.delete(id)
     .then(() => {

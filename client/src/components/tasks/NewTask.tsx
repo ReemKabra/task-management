@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import taskServices from "../../services/taskServices";
+import "./NewTask.css"
 import { Taskclient } from "../../models/Taskclient";
 import { useNavigate } from "react-router-dom";
 type Props = {
@@ -52,7 +53,7 @@ const NewTask = ({ isTaskAdd, addTaskHandler }: Props) => {
   };
   return (
     <React.Fragment>
-      <label>Title:</label>
+      <label className="custom-label" >Title:</label>
       <input
         className="form-control"
         name="title"
@@ -62,7 +63,7 @@ const NewTask = ({ isTaskAdd, addTaskHandler }: Props) => {
         onChange={onChangeHandler}
       />
       {!isTitle&&<p className="text-danger">Title is required</p>}
-      <label>Priority:</label>
+      <label className="custom-label">Priority:</label>
       <input
         required
         name="priority"
@@ -74,7 +75,7 @@ const NewTask = ({ isTaskAdd, addTaskHandler }: Props) => {
         onChange={onChangeHandler}
       />
       {!isPriority&&<p className="text-danger">Priority needs to be between 1 to 5</p>}
-      <label>Description:</label>
+      <label className="custom-label">Description:</label>
       <input className="form-control" type="text" ref={enterdDescriptonRef} />
       <div className="d-flex justify-content-between">
         <button className="btn btn-secondary" type="button" onClick={AddHandle}>
@@ -84,5 +85,6 @@ const NewTask = ({ isTaskAdd, addTaskHandler }: Props) => {
       </div>
     </React.Fragment>
   );
+
 };
 export default NewTask;

@@ -26,7 +26,11 @@ function App() {
     setIsLogIn(true);
   }
   return (
+    <div
+    className="app-container"
+  >
     <Router>
+
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <Link className="navbar-brand" to="/">
@@ -52,6 +56,7 @@ function App() {
             </ul>
           </div>
         </div>
+        
       </nav>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -59,7 +64,9 @@ function App() {
         <Route path="/taskslist" element={<Tasks />} />
         <Route path='/' element={<Home />} />
       </Routes>
+   
     </Router>
+    </div>
 );
 }
 
