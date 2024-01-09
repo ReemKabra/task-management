@@ -1,0 +1,12 @@
+.completed{
+    background-color: #2df80453;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin: 20px;
+}
+.buffer {
+    margin-top: 20px; 
+    border-top: 10px solid #050505;
+  }

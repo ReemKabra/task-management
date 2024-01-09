@@ -41,7 +41,7 @@ export default function Login() {
       userServices.login(enterdUserName,enterdPassword).then((loginSucceeded) => {
        if(loginSucceeded){
        alert("loginSucceeded");
-        navigate("/taskslist"); 
+       navigate("/taskslist")
        }
         else
         alert("Login failed");

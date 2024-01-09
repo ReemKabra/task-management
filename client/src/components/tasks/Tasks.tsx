@@ -18,6 +18,7 @@ const deleteTaskHandler = (id:string) => {
   taskServices.delete(id)
     .then(() => {
       setTasks((prevTasks) => prevTasks.filter((task:Taskclient) => task._id !== id));
+      setTasksCompleted((prevTasks) => prevTasks.filter((task:Taskclient) => task._id !== id));
     })
     .catch((error) => {
     });
@@ -46,9 +47,12 @@ useEffect(()=>{
 useEffect(() => {
   setTasks((prevTasks) => [...prevTasks].sort((a:Taskclient, b:Taskclient) => b.priority - a.priority));
 }, [tasks]);
-const addTasksCompleted = (task:Taskclient) => {
-  setTasksCompleted((prevTasks) => [...prevTasks, task]);
-  setISTasksCompleted(true);
+const addTasksCompleted = (Task:Taskclient,isChecked:boolean) => {
+  if(isChecked)
+  setTasksCompleted((prevTasks) => [...prevTasks, Task]);
+else{
+  setTasksCompleted((prevTasks) => prevTasks.filter((task:Taskclient) => task._id !== Task._id));
+}
 };
 
 const AddTaskHandler=(task:Taskclient)=>
@@ -79,7 +83,7 @@ return(
                 />
               ))}
               <div className="buffer"> Completed Tasks:</div>
-              {isTaskCompleted&&<div>
+              {<div>
         {tasksCompleted.map((task:Taskclient,index:number) => (
           <div className="completed">
             <div className="col-md-2">

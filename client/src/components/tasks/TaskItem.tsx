@@ -8,15 +8,16 @@ import "./TaskItem.css";
 type Props={
 task:Taskclient,
 DeleteTaskHandler:(id:string) =>void,
-completedTasks:(task:Taskclient)=>void
+completedTasks:(task:Taskclient,isChecked:boolean)=>void
 taskNumber:number,
 };
 export default function taskItem({ task, DeleteTaskHandler,taskNumber,completedTasks}:Props) {
   const handleDelete=()=>{
     DeleteTaskHandler(task._id);
   }
-  const CheckHandler=()=>{
-    completedTasks(task);
+  const CheckHandler=(event:any)=>{
+    const isChecked = event.target.checked;
+      completedTasks(task,isChecked);
   }
     return (
       <React.Fragment>
@@ -29,7 +30,7 @@ export default function taskItem({ task, DeleteTaskHandler,taskNumber,completedT
           <h5>description: {task.description}</h5>
           <h5>priority: {task.priority}</h5>
           <button onClick={handleDelete}> <FaTrash /> </button>
-          <input type="checkbox" onClick={CheckHandler} ></input>
+          <input type="checkbox" onClick={CheckHandler}></input>
         </div>
       </div>
     </React.Fragment>
